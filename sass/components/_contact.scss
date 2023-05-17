@@ -1,0 +1,30 @@
+@import "../utils/variables";
+
+.contact {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 30px;
+  margin-left: 345px;
+  &__link {
+    display: flex;
+    align-items: center;
+    font-weight: getFontWeight("accent");
+    font-size: calc(#{$small-font-size} + 2px);
+    line-height: 1.14;
+    letter-spacing: getLetterSpacing("m");
+    color: getColor("primary");
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      color: getColor("hover");
+    }
+  }
+  &__icon-envelope,
+  &__icon-smartphone {
+    margin-right: 10px;
+    --color5: currentColor;
+  }
+}

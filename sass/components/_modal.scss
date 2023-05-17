@@ -1,0 +1,36 @@
+@import "../utils/variables";
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition-property: visibility, opacity;
+  transition-duration: 500ms;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 1;
+  border-radius: 4px;
+  z-index: 2;
+  background-color: getColor("light");
+  box-shadow: 0px 1px 3px getColor("first-shadow"),
+    0px 1px 1px getColor("second-shadow"), 0px 2px 1px getColor("backdrop");
+  &__title {
+    padding-top: 40px;
+    font-weight: getFontWeight("bold");
+    font-size: $large-font-size;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: getLetterSpacing("l");
+  }
+  &__button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid getColor("border-button");
+    background-color: getColor("light");
+  }
+}

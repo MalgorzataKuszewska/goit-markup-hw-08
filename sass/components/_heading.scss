@@ -1,0 +1,25 @@
+@import "../utils/variables";
+
+.main-heading {
+  padding-right: 252px;
+  margin-bottom: 30px;
+  padding-left: 252px;
+  &--style {
+    font-weight: getFontWeight("extra-bold");
+    font-size: calc(#{$heading-font-size} + 8px);
+    line-height: 1.36;
+    text-align: center;
+    letter-spacing: getLetterSpacing("xl");
+    text-transform: uppercase;
+    color: getColor("light");
+  }
+}
+.heading {
+  margin-bottom: 50px;
+  &--style {
+    font-size: $heading-font-size;
+    line-height: 1.17;
+    text-align: center;
+    letter-spacing: getLetterSpacing("l");
+  }
+}

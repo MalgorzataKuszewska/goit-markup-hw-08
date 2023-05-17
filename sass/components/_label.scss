@@ -1,0 +1,9 @@
+@import "../utils/variables";
+
+.label {
+  margin-bottom: 4px;
+  font-size: $small-font-size;
+  line-height: 1.17;
+  letter-spacing: getLetterSpacing("s");
+  color: getColor("primary");
+}

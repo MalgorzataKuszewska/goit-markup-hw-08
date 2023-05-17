@@ -1,0 +1,29 @@
+@import "../utils/variables";
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  &__street {
+    font-style: normal;
+    font-size: calc(#{$small-font-size} + 2px);
+    line-height: 1.71;
+    letter-spacing: getLetterSpacing("l");
+    color: getColor("light");
+  }
+  &__mail,
+  &__phone {
+    font-style: normal;
+    font-size: calc(#{$small-font-size} + 2px);
+    line-height: 1.71;
+    letter-spacing: getLetterSpacing("l");
+    text-decoration: none;
+    color: getColor("contact-footer");
+    &:hover,
+    &:focus {
+      color: getColor("hover");
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}

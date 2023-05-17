@@ -1,0 +1,25 @@
+@import "../utils/variables";
+
+.logo {
+  padding-top: 24px;
+  padding-bottom: 25px;
+}
+.logo-footer {
+  margin-bottom: 20px;
+}
+.logo__link,
+.logo-footer__link {
+  font-family: $logo-font-family;
+  font-weight: getFontWeight("bold");
+  font-size: calc(#{$large-font-size} + 6px);
+  line-height: 1.19;
+  letter-spacing: getLetterSpacing("l");
+  text-decoration: none;
+  color: getColor("dark");
+  &--blue {
+    color: getColor("hover");
+  }
+}
+.logo-footer__link {
+  color: getColor("light");
+}

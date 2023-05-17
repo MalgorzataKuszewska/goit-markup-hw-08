@@ -1,0 +1,9 @@
+@import "../utils/variables";
+
+.footer {
+  background-color: getColor("dark-background");
+  &--position {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
