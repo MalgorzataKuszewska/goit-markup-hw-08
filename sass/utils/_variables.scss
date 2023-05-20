@@ -26,6 +26,7 @@ $colors: (
   "shadow-card": #00000029,
   "overlay-card": #2196f3e6,
   "border-text": #eee,
+  "mobile-menu-line": #21212133,
 );
 @function getColor($key) {
   @return map-get($colors, $key);
@@ -56,4 +57,14 @@ $letter-spacing: (
 );
 @function getLetterSpacing($key) {
   @return map-get($letter-spacing, $key);
+}
+
+@mixin text($fontSize, $lineHeight, $letterSpacing) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}
+@mixin padding($top, $bottom) {
+  padding-top: $top;
+  padding-bottom: $bottom;
 }

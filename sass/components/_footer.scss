@@ -2,8 +2,17 @@
 
 .footer {
   background-color: getColor("dark-background");
+  display: flex;
+  flex-direction: column;
   &--position {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    @include padding(60px, 60px);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .footer {
+    background-color: getColor("dark-background");
+    &--position {
+      @include padding(60px, 60px);
+    }
   }
 }

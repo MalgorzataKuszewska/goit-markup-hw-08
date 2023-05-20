@@ -1,32 +1,29 @@
 @import "../utils/variables";
 
 .form-footer {
-  padding-top: 72px;
-  padding-bottom: 94px;
-  margin-left: 78px;
+  margin-top: 60px;
+  margin-bottom: 60px;
   display: flex;
+  flex-direction: column;
   &__heading {
     margin-bottom: 20px;
     font-weight: getFontWeight("bold");
-    font-size: calc(#{$small-font-size} + 2px);
-    line-height: 1.14;
-    letter-spacing: getLetterSpacing("l");
+    @include text(calc(#{$small-font-size} + 2px), 1.14, getLetterSpacing("l"));
     text-transform: uppercase;
     color: getColor("light");
+    text-align: center;
   }
   &__input {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin-bottom: 20px;
+    @include padding(15px, 15px);
     padding-left: 16px;
-    width: 358px;
+    width: 450px;
     border-radius: 4px;
     border: 1px solid getColor("border-input-footer");
     box-shadow: 0px 4px 4px getColor("shadow-button");
     background-color: transparent;
     &::placeholder {
-      font-size: $medium-font-size;
-      line-height: 1.25;
-      letter-spacing: getLetterSpacing("l");
+      @include text($medium-font-size, 1.25, getLetterSpacing("l"));
       color: getColor("contact-footer");
     }
   }
@@ -51,5 +48,19 @@
     top: 50%;
     transform: translateY(-50%);
     left: 148px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .form-footer {
+    margin: 0;
+    @include padding(72px, 94px);
+    margin-left: 78px;
+    &__heading {
+      text-align: left;
+    }
+    &__input {
+      width: 358px;
+      margin: 0;
+    }
   }
 }

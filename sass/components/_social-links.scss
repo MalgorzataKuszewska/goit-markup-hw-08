@@ -1,17 +1,15 @@
 @import "../utils/variables";
 
 .social-links {
-  padding-top: 72px;
-  padding-bottom: 100px;
-  margin-left: 70px;
+  margin-top: 60px;
+  margin-bottom: 60px;
   &__heading {
     margin-bottom: 20px;
     font-weight: getFontWeight("bold");
-    font-size: calc(#{$small-font-size} + 2px);
-    line-height: 1.14;
-    letter-spacing: getLetterSpacing("l");
+    @include text(calc(#{$small-font-size} + 2px), 1.14, getLetterSpacing("l"));
     text-transform: uppercase;
     color: getColor("light");
+    text-align: center;
   }
   &__list {
     list-style-type: none;
@@ -25,18 +23,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     background-color: getColor("background-social-links");
     color: getColor("light");
-    &:hover,
-    &:focus {
-      transition-duration: 250ms;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      background-color: getColor("hover");
-      color: getColor("light");
-    }
   }
   &__icon {
     --color1: currentColor;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .social-links {
+    margin-top: 0;
+    margin-bottom: 0;
+    @include padding(65px, 318px);
+    margin-left: 144px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .social-links {
+    margin: 0;
+    @include padding(72px, 100px);
+    margin-left: 70px;
+    &__heading {
+      text-align: left;
+    }
+    &__background {
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: getColor("hover");
+        color: getColor("light");
+      }
+    }
   }
 }

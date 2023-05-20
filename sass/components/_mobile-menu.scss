@@ -1,0 +1,110 @@
+@import "../utils/variables";
+
+.menu-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include padding(10px, 10px);
+  margin-left: 276px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  &__hover,
+  &__focus {
+    color: getColor("hover");
+  }
+}
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 40px;
+  @include padding(48px, 48px);
+  background-color: getColor("light");
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 250ms ease-in-out;
+}
+.menu-container.is-open {
+  transform: translateX(0);
+}
+.menu-container .menu-toggle {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.mobile-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  &__link {
+    display: block;
+    padding-bottom: 32px;
+    text-decoration: none;
+    font-weight: getFontWeight("accent");
+    @include text(
+      calc(#{$large-font-size} + 20px),
+      1.17,
+      getLetterSpacing("m")
+    );
+    color: inherit;
+    &--active {
+      color: getColor("hover");
+    }
+  }
+}
+.mobile-menu-contact {
+  list-style: none;
+  margin-top: 270px;
+  &__tel {
+    display: block;
+    font-weight: getFontWeight("accent");
+    @include text(
+      calc(#{$large-font-size} + 14px),
+      1.18,
+      getLetterSpacing("m")
+    );
+    color: getColor ("primary");
+    text-decoration: none;
+    margin-bottom: 32px;
+  }
+  &__mail {
+    font-weight: getFontWeight("accent");
+    @include text(calc(#{$large-font-size} + 4px), 1.17, getLetterSpacing("m"));
+    color: getColor("primary");
+    text-decoration: none;
+  }
+}
+.mobile-menu-social {
+  list-style: none;
+  display: flex;
+  margin-top: 64px;
+  &__link {
+    font-weight: getFontWeight("accent");
+    @include text(
+      calc(#{$medium-font-size} + 2px),
+      1.22,
+      getLetterSpacing("m")
+    );
+    color: getColor("hover");
+    text-decoration: none;
+    border-right: 1px solid getColor("mobile-menu-line");
+    padding-right: 10px;
+    margin-right: 10px;
+    &--last {
+      border: none;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-toggle,
+  .menu-container {
+    display: none;
+  }
+}

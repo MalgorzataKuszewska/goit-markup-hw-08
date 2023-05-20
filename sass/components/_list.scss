@@ -3,47 +3,40 @@
 .list {
   list-style-type: none;
   display: flex;
+  flex-direction: column;
   gap: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  &__icon-background {
+    width: 450px;
+    height: 120px;
+    background-color: getColor("light-background");
+    position: relative;
+  }
+  &__icon-small {
+    position: absolute;
+    top: 25px;
+    left: 190px;
+  }
+  &__icon-desktop,
+  &__icon-d,
+  &__icon-d--color {
+    display: none;
+  }
   &__heading {
-    margin-bottom: 10px;
-    margin-top: 30px;
     font-size: calc(#{$small-font-size} + 2px);
     line-height: 1.14;
     letter-spacing: getLetterSpacing("l");
     text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
   }
   &__description {
     font-size: calc(#{$small-font-size} + 2px);
     line-height: 1.71;
     letter-spacing: getLetterSpacing("l");
     color: getColor("primary");
-  }
-  &--height {
-    height: 294px;
-  }
-  &__img {
-    position: relative;
-  }
-  &__overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-top: 27px;
-    padding-bottom: 27px;
-    background-color: getColor("overlay-background");
-  }
-  &__label {
-    font-weight: getFontWeight("bold");
-    font-size: calc(#{$small-font-size} + 2px);
-    line-height: 1.14;
-    text-align: center;
-    letter-spacing: getLetterSpacing("l");
-    text-transform: uppercase;
-    color: getColor("light");
-  }
-  &--gap {
-    gap: 40px;
   }
   &__figure {
     border-radius: 0px 0px 4px 4px;
@@ -54,86 +47,211 @@
   &__figcaption {
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    @include padding(30px, 36px);
   }
   &__name {
     margin-bottom: 10px;
     font-weight: getFontWeight("accent");
-    font-size: $medium-font-size;
-    line-height: 1.19;
+    @include text($medium-font-size, 1.19, getLetterSpacing("l"));
     text-align: center;
-    letter-spacing: getLetterSpacing("l");
   }
   &__position {
-    margin-bottom: 16px;
-    font-size: $medium-font-size;
-    line-height: 1.19;
+    margin-bottom: 28px;
+    @include text($medium-font-size, 1.19, getLetterSpacing("l"));
     text-align: center;
-    letter-spacing: getLetterSpacing("l");
     color: getColor("primary");
   }
   &__links {
     list-style-type: none;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 34px;
   }
-  &__social-links {
-    border-radius: 50%;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  &__logo {
+    border-radius: 4px;
+    margin-top: 30px;
+    border: 1px solid getColor("links");
     color: getColor("links");
-    &:hover,
-    &:focus {
-      transition-duration: 250ms;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      background-color: getColor("hover");
-      color: getColor("light");
+    &--padding1 {
+      padding: 21px 82.73px 21.77px 83px;
+    }
+    &--padding2 {
+      padding: 20px 85px 20px 85px;
+    }
+    &--padding3 {
+      padding: 25px 85px 24.4px 84px;
+    }
+    &--padding4 {
+      padding: 25px 65.34px 24.98px 65px;
+    }
+    &--padding5 {
+      padding: 22px 76px 23px 75px;
+    }
+    &--padding6 {
+      padding: 23px 75.52px 23.56px 61px;
     }
   }
-  &__icon {
+  &__icon-m {
     --color1: currentColor;
     &--color {
       --color2: currentColor;
     }
   }
-  &__logo {
-    border-radius: 4px;
-    margin-top: 50px;
-    cursor: pointer;
-    border: 1px solid getColor("links");
-    color: getColor("links");
-    &:hover,
-    &:focus {
-      color: getColor("hover");
-      border: 1px solid getColor("hover");
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    &__icon-background {
+      width: 354px;
+      flex-basis: calc((100% - 30px) / 2);
     }
-    &--padding1 {
-      padding: 24.71px 65px 20.58px 64px;
+    &__icon-small {
+      left: 142px;
     }
-    &--padding2 {
-      padding: 20.71px 65px 19.29px 65px;
+    &__heading {
+      text-align: left;
     }
-    &--padding3 {
-      padding: 24.7px 64.86px 26.12px 61.68px;
+    &__description {
+      width: 100%;
     }
-    &--padding4 {
-      padding: 24.7px 42.56px 26.68px 43px;
+    &__figure {
+      flex-basis: calc((100% - 30px) / 2);
     }
-    &--padding5 {
-      padding: 22.77px 53.46px 23.8px 54px;
+    &__logo {
+      flex-basis: calc((100% - 30px) / 3);
+      &--padding1 {
+        padding: 21px 90.73px 21.77px 91px;
+      }
+      &--padding2 {
+        padding: 19px 93px 21px 93px;
+      }
+      &--padding3 {
+        padding: 24px 93px 25.4px 92px;
+      }
+      &--padding4 {
+        padding: 25px 73.34px 24.98px 73px;
+      }
+      &--padding5 {
+        padding: 23px 84px 22px 83px;
+      }
+      &--padding6 {
+        padding: 23px 68.52px 23.56px 69px;
+      }
     }
-    &--padding6 {
-      padding: 22.77px 38.21px 25.31px 38px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .list {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    &__icon-background {
+      display: none;
     }
-    &:hover,
-    &:focus {
-      transition-duration: 250ms;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &__icon-desktop {
+      display: flex;
+    }
+    &__heading {
+      text-align: left;
+    }
+    &--height {
+      height: 294px;
+    }
+    &__img {
+      position: relative;
+    }
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-top: 27px;
+      padding-bottom: 27px;
+      background-color: getColor("overlay-background");
+    }
+    &__label {
+      font-weight: getFontWeight("bold");
+      font-size: calc(#{$small-font-size} + 2px);
+      line-height: 1.14;
+      text-align: center;
+      letter-spacing: getLetterSpacing("l");
+      text-transform: uppercase;
+      color: getColor("light");
+    }
+    &--gap {
+      gap: 40px;
+    }
+    &__figcaption {
+      @include padding(30px, 30px);
+    }
+    &__position {
+      margin-bottom: 16px;
+    }
+    &__links {
+      gap: 10px;
+    }
+    &__social-links {
+      border-radius: 50%;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: getColor("links");
+      &:hover,
+      &:focus {
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: getColor("hover");
+        color: getColor("light");
+      }
+    }
+    &__icon-m,
+    &__icon-m--color {
+      display: none;
+    }
+    &__icon-d {
+      display: flex;
+      --color1: currentColor;
+      &--color {
+        --color2: currentColor;
+      }
+    }
+    &__icon {
+      --color1: currentColor;
+    }
+    &__logo {
+      margin-top: 50px;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        color: getColor("hover");
+        border: 1px solid getColor("hover");
+      }
+      &--padding1 {
+        padding: 24.71px 65px 20.58px 64px;
+      }
+      &--padding2 {
+        padding: 20.71px 65px 19.29px 65px;
+      }
+      &--padding3 {
+        padding: 24.7px 64.86px 26.12px 61.68px;
+      }
+      &--padding4 {
+        padding: 24.7px 42.56px 26.68px 43px;
+      }
+      &--padding5 {
+        padding: 22.77px 53.46px 23.8px 54px;
+      }
+      &--padding6 {
+        padding: 22.77px 38.21px 25.31px 38px;
+      }
+      &:hover,
+      &:focus {
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
     }
   }
 }

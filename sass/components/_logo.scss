@@ -1,8 +1,7 @@
 @import "../utils/variables";
 
 .logo {
-  padding-top: 24px;
-  padding-bottom: 25px;
+  @include padding(16px, 16px);
 }
 .logo-footer {
   margin-bottom: 20px;
@@ -11,9 +10,7 @@
 .logo-footer__link {
   font-family: $logo-font-family;
   font-weight: getFontWeight("bold");
-  font-size: calc(#{$large-font-size} + 6px);
-  line-height: 1.19;
-  letter-spacing: getLetterSpacing("l");
+  @include text(calc(#{$large-font-size} + 4px), 1.17, getLetterSpacing("l"));
   text-decoration: none;
   color: getColor("dark");
   &--blue {
@@ -22,4 +19,38 @@
 }
 .logo-footer__link {
   color: getColor("light");
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .logo {
+    @include padding(26px, 26px);
+    &__link {
+      @include text(
+        calc(#{$large-font-size} + 4px),
+        1.17,
+        getLetterSpacing("l")
+      );
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .logo {
+    @include padding(24px, 25px);
+    &__link {
+      @include text(
+        calc(#{$large-font-size} + 6px),
+        1.19,
+        getLetterSpacing("l")
+      );
+    }
+  }
+  .logo-footer {
+    &__link {
+      @include text(
+        calc(#{$large-font-size} + 6px),
+        1.19,
+        getLetterSpacing("l")
+      );
+    }
+  }
 }
