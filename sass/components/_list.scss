@@ -1,167 +1,64 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .list {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-left: 15px;
-  padding-right: 15px;
+
+  &__item {
+    @include tablet {
+      max-width: calc(100% / 2 - 2 * 15px);
+      min-width: 354px;
+    }
+
+    @include desktop {
+      max-width: calc(100% / 4 - 2 * 15px);
+      min-width: 270px;
+    }
+  }
+
   &__icon-background {
-    width: 450px;
+    width: 100%;
     height: 120px;
     background-color: getColor("light-background");
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  &__icon-small {
-    position: absolute;
-    top: 25px;
-    left: 190px;
-  }
-  &__icon-desktop,
-  &__icon-d,
-  &__icon-d--color {
-    display: none;
-  }
+
   &__heading {
-    font-size: calc(#{$small-font-size} + 2px);
-    line-height: 1.14;
-    letter-spacing: getLetterSpacing("l");
+    @include text(calc(#{$small-font-size} + 2px), 1.14, getLetterSpacing("l"));
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 10px;
     margin-top: 30px;
+
+    @include tablet {
+      text-align: left;
+    }
   }
+
   &__description {
-    font-size: calc(#{$small-font-size} + 2px);
-    line-height: 1.71;
-    letter-spacing: getLetterSpacing("l");
+    @include text(calc(#{$small-font-size} + 2px), 1.71, getLetterSpacing("l"));
     color: getColor("primary");
   }
-  &__figure {
-    border-radius: 0px 0px 4px 4px;
-    box-shadow: 0px 1px 3px getColor("first-shadow"),
-      0px 1px 1px getColor("second-shadow"), 0px 2px 1px getColor("backdrop");
-    background-color: getColor("light");
-  }
-  &__figcaption {
-    display: flex;
-    flex-direction: column;
-    @include padding(30px, 36px);
-  }
-  &__name {
-    margin-bottom: 10px;
-    font-weight: getFontWeight("accent");
-    @include text($medium-font-size, 1.19, getLetterSpacing("l"));
-    text-align: center;
-  }
-  &__position {
-    margin-bottom: 28px;
-    @include text($medium-font-size, 1.19, getLetterSpacing("l"));
-    text-align: center;
-    color: getColor("primary");
-  }
-  &__links {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    gap: 34px;
-  }
-  &__logo {
-    border-radius: 4px;
-    margin-top: 30px;
-    border: 1px solid getColor("links");
-    color: getColor("links");
-    &--padding1 {
-      padding: 21px 82.73px 21.77px 83px;
-    }
-    &--padding2 {
-      padding: 20px 85px 20px 85px;
-    }
-    &--padding3 {
-      padding: 25px 85px 24.4px 84px;
-    }
-    &--padding4 {
-      padding: 25px 65.34px 24.98px 65px;
-    }
-    &--padding5 {
-      padding: 22px 76px 23px 75px;
-    }
-    &--padding6 {
-      padding: 23px 75.52px 23.56px 61px;
-    }
-  }
-  &__icon-m {
-    --color1: currentColor;
-    &--color {
-      --color2: currentColor;
-    }
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    &__icon-background {
-      width: 354px;
-      flex-basis: calc((100% - 30px) / 2);
-    }
-    &__icon-small {
-      left: 142px;
-    }
-    &__heading {
-      text-align: left;
-    }
-    &__description {
-      width: 100%;
-    }
-    &__figure {
-      flex-basis: calc((100% - 30px) / 2);
-    }
-    &__logo {
-      flex-basis: calc((100% - 30px) / 3);
-      &--padding1 {
-        padding: 21px 90.73px 21.77px 91px;
-      }
-      &--padding2 {
-        padding: 19px 93px 21px 93px;
-      }
-      &--padding3 {
-        padding: 24px 93px 25.4px 92px;
-      }
-      &--padding4 {
-        padding: 25px 73.34px 24.98px 73px;
-      }
-      &--padding5 {
-        padding: 23px 84px 22px 83px;
-      }
-      &--padding6 {
-        padding: 23px 68.52px 23.56px 69px;
-      }
-    }
-  }
-}
-@media screen and (min-width: 1200px) {
-  .list {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    &__icon-background {
-      display: none;
-    }
-    &__icon-desktop {
-      display: flex;
-    }
-    &__heading {
-      text-align: left;
-    }
-    &--height {
+
+  &--height {
+    @include desktop {
       height: 294px;
     }
-    &__img {
+  }
+
+  &__img {
+    @include desktop {
       position: relative;
     }
-    &__overlay {
+  }
+
+  &__overlay {
+    @include desktop {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -170,28 +67,70 @@
       padding-bottom: 27px;
       background-color: getColor("overlay-background");
     }
-    &__label {
+  }
+
+  &__label {
+    @include desktop {
       font-weight: getFontWeight("bold");
-      font-size: calc(#{$small-font-size} + 2px);
-      line-height: 1.14;
+      @include text(
+        calc(#{$small-font-size} + 2px),
+        1.14,
+        getLetterSpacing("l")
+      );
       text-align: center;
-      letter-spacing: getLetterSpacing("l");
       text-transform: uppercase;
       color: getColor("light");
     }
-    &--gap {
-      gap: 40px;
-    }
-    &__figcaption {
+  }
+
+  &__figure {
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0px 1px 3px getColor("first-shadow"),
+      0px 1px 1px getColor("second-shadow"), 0px 2px 1px getColor("backdrop");
+    background-color: getColor("light");
+  }
+
+  &__figcaption {
+    display: flex;
+    flex-direction: column;
+    @include padding(30px, 36px);
+
+    @include desktop {
       @include padding(30px, 30px);
     }
-    &__position {
+  }
+
+  &__name {
+    margin-bottom: 10px;
+    font-weight: getFontWeight("accent");
+    @include text($medium-font-size, 1.19, getLetterSpacing("l"));
+    text-align: center;
+  }
+
+  &__position {
+    margin-bottom: 28px;
+    @include text($medium-font-size, 1.19, getLetterSpacing("l"));
+    text-align: center;
+    color: getColor("primary");
+
+    @include desktop {
       margin-bottom: 16px;
     }
-    &__links {
+  }
+
+  &__links {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+
+    @include desktop {
       gap: 10px;
     }
-    &__social-links {
+  }
+
+  &__social-links {
+    @include desktop {
       border-radius: 50%;
       padding: 12px;
       display: flex;
@@ -207,51 +146,61 @@
         color: getColor("light");
       }
     }
-    &__icon-m,
-    &__icon-m--color {
-      display: none;
+  }
+
+  &__icon {
+    @include desktop {
+      --color1: currentColor;
     }
-    &__icon-d {
+  }
+
+  &--row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include desktop {
       display: flex;
-      --color1: currentColor;
-      &--color {
-        --color2: currentColor;
-      }
+      flex-wrap: nowrap;
     }
-    &__icon {
-      --color1: currentColor;
+  }
+
+  &__logo {
+    border-radius: 4px;
+    border: 1px solid getColor("links");
+    color: getColor("links");
+    padding: 16px 52px;
+    max-width: calc(100% / 2 - 2 * 15px);
+    min-width: 210px;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: getColor("hover");
+      border: 1px solid getColor("hover");
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    &__logo {
-      margin-top: 50px;
-      cursor: pointer;
-      &:hover,
-      &:focus {
-        color: getColor("hover");
-        border: 1px solid getColor("hover");
-      }
-      &--padding1 {
-        padding: 24.71px 65px 20.58px 64px;
-      }
-      &--padding2 {
-        padding: 20.71px 65px 19.29px 65px;
-      }
-      &--padding3 {
-        padding: 24.7px 64.86px 26.12px 61.68px;
-      }
-      &--padding4 {
-        padding: 24.7px 42.56px 26.68px 43px;
-      }
-      &--padding5 {
-        padding: 22.77px 53.46px 23.8px 54px;
-      }
-      &--padding6 {
-        padding: 22.77px 38.21px 25.31px 38px;
-      }
-      &:hover,
-      &:focus {
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
+
+    @include tablet {
+      max-width: calc(100% / 3 - 2 * 15px);
+      min-width: 226px;
+      padding: 16px 60px;
+    }
+
+    @include desktop {
+      max-width: calc(100% / 3 - 2 * 15px);
+      min-width: 170px;
+      padding: 16px 32px;
+    }
+  }
+
+  &__icon-client {
+    --color1: currentColor;
+    width: 106px;
+    height: 60px;
+    &--color {
+      --color2: currentColor;
     }
   }
 }

@@ -1,10 +1,18 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .form-footer {
   margin-top: 60px;
-  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
+  text-align: center;
+
+  @include desktop {
+    position: absolute;
+    top: 12px;
+    right: 0;
+  }
+
   &__heading {
     margin-bottom: 20px;
     font-weight: getFontWeight("bold");
@@ -12,12 +20,17 @@
     text-transform: uppercase;
     color: getColor("light");
     text-align: center;
+
+    @include desktop {
+      text-align: left;
+    }
   }
+
   &__input {
     margin-bottom: 20px;
     @include padding(15px, 15px);
     padding-left: 16px;
-    width: 450px;
+    width: 100%;
     border-radius: 4px;
     border: 1px solid getColor("border-input-footer");
     box-shadow: 0px 4px 4px getColor("shadow-button");
@@ -26,41 +39,45 @@
       @include text($medium-font-size, 1.25, getLetterSpacing("l"));
       color: getColor("contact-footer");
     }
+
+    @include tablet {
+      width: 59%;
+    }
+
+    @include desktop {
+      margin-bottom: 0;
+      width: 358px;
+    }
   }
+
   &__button {
     border-radius: 4px;
     border-style: none;
-    margin-left: 12px;
     position: relative;
     cursor: pointer;
     padding: 10px 76px 10px 42px;
     font-weight: getFontWeight("bold");
-    font-size: $medium-font-size;
-    line-height: 1.88;
+    @include text($medium-font-size, 1.88, getLetterSpacing("xl"));
     text-align: center;
-    letter-spacing: getLetterSpacing("xl");
     color: getColor("light");
     background-color: getColor("hover");
     box-shadow: 0px 4px 4px getColor("shadow-button");
+
+    @include tablet {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include desktop {
+      display: inline;
+      margin-left: 12px;
+    }
   }
+
   &__icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 148px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .form-footer {
-    margin: 0;
-    @include padding(72px, 94px);
-    margin-left: 78px;
-    &__heading {
-      text-align: left;
-    }
-    &__input {
-      width: 358px;
-      margin: 0;
-    }
   }
 }

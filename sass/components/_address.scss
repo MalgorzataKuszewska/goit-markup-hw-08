@@ -1,17 +1,23 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .address {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-left: 115px;
-  padding-right: 114px;
+
+  @include tablet {
+    display: flex;
+    justify-content: flex-start;
+  }
+
   &__street {
     font-style: normal;
     @include text(calc(#{$small-font-size} + 2px), 1.71, getLetterSpacing("l"));
     color: getColor("light");
     text-align: center;
   }
+
   &__mail,
   &__phone {
     display: flex;
@@ -23,12 +29,7 @@
     text-align: center;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .address {
-    padding-left: 76px;
-    padding-right: 439px;
-  }
-}
+
 @media screen and (min-width: 1200px) {
   .address {
     padding-left: 0;

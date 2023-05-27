@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .text-area {
   width: 100%;
@@ -14,10 +15,13 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid getColor("hover");
   }
+
   &::placeholder {
-    font-size: $small-font-size;
-    line-height: 1.17;
-    letter-spacing: getLetterSpacing("s");
+    @include text(calc(#{$small-font-size} + 2px), 1.14, getLetterSpacing("s"));
     color: getColor("placeholder");
+
+    @include desktop {
+      @include text($small-font-size, 1.17, getLetterSpacing("s"));
+    }
   }
 }

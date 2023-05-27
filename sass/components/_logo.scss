@@ -1,11 +1,33 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .logo {
   @include padding(16px, 16px);
+
+  @include tablet {
+    @include padding(26px, 26px);
+  }
+
+  @include desktop {
+    @include padding(24px, 25px);
+  }
 }
 .logo-footer {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    text-align: center;
+  }
+
+  @include desktop {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+  }
 }
+
 .logo__link,
 .logo-footer__link {
   font-family: $logo-font-family;
@@ -13,44 +35,16 @@
   @include text(calc(#{$large-font-size} + 4px), 1.17, getLetterSpacing("l"));
   text-decoration: none;
   color: getColor("dark");
+
+  @include desktop {
+    @include text(calc(#{$large-font-size} + 6px), 1.19, getLetterSpacing("l"));
+  }
+
   &--blue {
     color: getColor("hover");
   }
 }
+
 .logo-footer__link {
   color: getColor("light");
-}
-
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .logo {
-    @include padding(26px, 26px);
-    &__link {
-      @include text(
-        calc(#{$large-font-size} + 4px),
-        1.17,
-        getLetterSpacing("l")
-      );
-    }
-  }
-}
-@media screen and (min-width: 1200px) {
-  .logo {
-    @include padding(24px, 25px);
-    &__link {
-      @include text(
-        calc(#{$large-font-size} + 6px),
-        1.19,
-        getLetterSpacing("l")
-      );
-    }
-  }
-  .logo-footer {
-    &__link {
-      @include text(
-        calc(#{$large-font-size} + 6px),
-        1.19,
-        getLetterSpacing("l")
-      );
-    }
-  }
 }

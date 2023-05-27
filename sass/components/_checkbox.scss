@@ -1,10 +1,15 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .checkbox {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  padding-left: 15px;
+
+  @include desktop {
+    padding-left: 15px;
+  }
+
   &__input {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -21,11 +26,18 @@
   }
   &__text {
     margin-left: 8px;
-    font-size: calc(#{$small-font-size} + 2px);
-    line-height: 1.71;
-    letter-spacing: getLetterSpacing("l");
+    @include text($small-font-size, 1.17, getLetterSpacing("l"));
     color: getColor("primary");
+
+    @include desktop {
+      @include text(
+        calc(#{$small-font-size} + 2px),
+        1.71,
+        getLetterSpacing("l")
+      );
+    }
   }
+
   &__link {
     color: getColor("hover");
   }

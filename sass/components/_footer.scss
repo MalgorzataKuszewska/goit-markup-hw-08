@@ -1,18 +1,25 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .footer {
   background-color: getColor("dark-background");
-  display: flex;
-  flex-direction: column;
+
   &--position {
     @include padding(60px, 60px);
+    position: relative;
   }
-}
-@media screen and (min-width: 1200px) {
-  .footer {
-    background-color: getColor("dark-background");
-    &--position {
-      @include padding(60px, 60px);
+
+  &--box1 {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      padding-left: 61px;
+      width: 42.5%;
+    }
+
+    @include desktop {
+      padding-left: 0;
+      width: 25%;
     }
   }
 }

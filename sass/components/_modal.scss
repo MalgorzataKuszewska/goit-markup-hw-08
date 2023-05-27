@@ -1,6 +1,8 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .modal {
+  width: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -14,14 +16,28 @@
   background-color: getColor("light");
   box-shadow: 0px 1px 3px getColor("first-shadow"),
     0px 1px 1px getColor("second-shadow"), 0px 2px 1px getColor("backdrop");
+
+  @include tablet {
+    width: 59%;
+  }
+
+  @include desktop {
+    width: 35%;
+  }
+
   &__title {
     padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
     font-weight: getFontWeight("bold");
-    font-size: $large-font-size;
-    line-height: 1.15;
+    @include text($large-font-size, 1.5, getLetterSpacing("l"));
     text-align: center;
-    letter-spacing: getLetterSpacing("l");
+
+    @include desktop {
+      @include text($large-font-size, 1.15, getLetterSpacing("l"));
+    }
   }
+
   &__button {
     position: absolute;
     top: 8px;

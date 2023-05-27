@@ -1,14 +1,31 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .nav {
   display: none;
-}
-@media screen and (min-width: 768px) {
-  .nav {
+
+  @include tablet {
     display: flex;
     align-items: center;
     @include padding(32px, 32px);
-    &__link {
+  }
+
+  &__menu {
+    @include tablet {
+      display: flex;
+      gap: 60px;
+      list-style-type: none;
+      margin-left: 83px;
+    }
+
+    @include desktop {
+      gap: 46px;
+      margin-left: 93px;
+    }
+  }
+
+  &__link {
+    @include tablet {
       font-weight: getFontWeight("accent");
       @include text(
         calc(#{$small-font-size} + 2px),
@@ -25,7 +42,10 @@
       }
     }
   }
-  .active {
+}
+
+.active {
+  @include tablet {
     position: relative;
     color: getColor("hover");
     &::after {
@@ -38,21 +58,5 @@
       bottom: -33px;
       background-color: getColor("hover");
     }
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .nav__menu {
-    display: flex;
-    gap: 60px;
-    list-style-type: none;
-    margin-left: 83px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .nav__menu {
-    display: flex;
-    gap: 46px;
-    list-style-type: none;
-    margin-left: 93px;
   }
 }

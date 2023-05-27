@@ -1,51 +1,32 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .contact {
   display: none;
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .contact {
+
+  @include tablet {
     margin-left: 101px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style-type: none;
     gap: 10px;
-    &__link {
+  }
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+    margin-left: 345px;
+  }
+
+  &__link {
+    @include tablet {
       font-weight: getFontWeight("accent");
       color: getColor("primary");
       text-decoration: none;
       @include text($small-font-size, 1.17, getLetterSpacing("m"));
-    }
-    &__icon-envelope--tablet,
-    &__icon-smartphone--tablet {
-      margin-right: 8px;
-      --color5: currentColor;
-    }
-    &__icon-envelope,
-    &__icon-smartphone {
-      display: none;
-    }
-  }
-}
-@media screen and (min-width: 1200px) {
-  .contact {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-left: 345px;
-    list-style-type: none;
-    &__link {
-      display: flex;
-      align-items: center;
-      font-weight: getFontWeight("accent");
-      color: getColor("primary");
-      text-decoration: none;
-      @include text(
-        calc(#{$small-font-size} + 2px),
-        1.14,
-        getLetterSpacing("m")
-      );
       &:hover,
       &:focus {
         transition-duration: 250ms;
@@ -53,14 +34,47 @@
         color: getColor("hover");
       }
     }
-    &__icon-envelope--tablet,
-    &__icon-smartphone--tablet {
-      display: none;
+
+    @include desktop {
+      display: flex;
+      align-items: center;
+      @include text(
+        calc(#{$small-font-size} + 2px),
+        1.14,
+        getLetterSpacing("m")
+      );
     }
-    &__icon-envelope,
-    &__icon-smartphone {
+  }
+
+  &__icon-envelope {
+    @include tablet {
+      margin-right: 8px;
+      width: 14px;
+      height: 10px;
+      --color5: currentColor;
+    }
+
+    @include desktop {
       margin-right: 10px;
       --color5: currentColor;
+      width: 16px;
+      height: 12px;
+    }
+  }
+
+  &__icon-smartphone {
+    @include tablet {
+      margin-right: 8px;
+      width: 10px;
+      height: 14px;
+      --color5: currentColor;
+    }
+
+    @include desktop {
+      margin-right: 10px;
+      --color5: currentColor;
+      width: 10px;
+      height: 16px;
     }
   }
 }

@@ -1,8 +1,21 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .social-links {
   margin-top: 60px;
   margin-bottom: 60px;
+
+  @include tablet {
+    position: absolute;
+    right: 74px;
+    top: 5px;
+  }
+
+  @include desktop {
+    top: 12px;
+    right: 54%;
+  }
+
   &__heading {
     margin-bottom: 20px;
     font-weight: getFontWeight("bold");
@@ -10,13 +23,19 @@
     text-transform: uppercase;
     color: getColor("light");
     text-align: center;
+
+    @include desktop {
+      text-align: left;
+    }
   }
+
   &__list {
     list-style-type: none;
     display: flex;
     justify-content: center;
     gap: 10px;
   }
+
   &__background {
     border-radius: 50%;
     padding: 12px;
@@ -25,36 +44,17 @@
     align-items: center;
     background-color: getColor("background-social-links");
     color: getColor("light");
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      transition-duration: 250ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: getColor("hover");
+      color: getColor("light");
+    }
   }
+
   &__icon {
     --color1: currentColor;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .social-links {
-    margin-top: 0;
-    margin-bottom: 0;
-    @include padding(65px, 318px);
-    margin-left: 144px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .social-links {
-    margin: 0;
-    @include padding(72px, 100px);
-    margin-left: 70px;
-    &__heading {
-      text-align: left;
-    }
-    &__background {
-      cursor: pointer;
-      &:hover,
-      &:focus {
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        background-color: getColor("hover");
-        color: getColor("light");
-      }
-    }
   }
 }

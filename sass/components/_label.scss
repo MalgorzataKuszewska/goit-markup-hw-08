@@ -1,9 +1,8 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .label {
   margin-bottom: 4px;
-  font-size: $small-font-size;
-  line-height: 1.17;
-  letter-spacing: getLetterSpacing("s");
+  @include text($small-font-size, 1.17, getLetterSpacing("s"));
   color: getColor("primary");
 }

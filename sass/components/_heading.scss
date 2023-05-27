@@ -1,9 +1,10 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .main-heading {
-  padding-right: 48px;
   margin-bottom: 30px;
-  padding-left: 47px;
+  display: flex;
+  justify-content: center;
   &--style {
     font-weight: getFontWeight("extra-bold");
     @include text(
@@ -14,30 +15,8 @@
     text-align: center;
     text-transform: uppercase;
     color: getColor("light");
-  }
-}
-.heading {
-  margin-bottom: 30px;
-  &--style {
-    @include text(
-      calc(#{$heading-font-size} - 8px),
-      1.18,
-      getLetterSpacing("l")
-    );
-    text-align: center;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .main-heading {
-    padding-right: 171px;
-    padding-left: 172px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .main-heading {
-    padding-right: 252px;
-    padding-left: 252px;
-    &--style {
+
+    @include desktop {
       @include text(
         calc(#{$heading-font-size} + 8px),
         1.36,
@@ -45,10 +24,23 @@
       );
     }
   }
-  .heading {
+}
+.heading {
+  margin-bottom: 30px;
+
+  @include desktop {
     margin-bottom: 50px;
-    padding: 0;
-    &--style {
+  }
+
+  &--style {
+    @include text(
+      calc(#{$heading-font-size} - 8px),
+      1.18,
+      getLetterSpacing("l")
+    );
+    text-align: center;
+
+    @include desktop {
       @include text($heading-font-size, 1.17, getLetterSpacing("l"));
     }
   }
