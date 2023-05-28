@@ -2,27 +2,20 @@
 @import "../utils/mixins";
 
 .modal {
-  width: 95%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   transition-property: visibility, opacity;
   transition-duration: 500ms;
   visibility: visible;
-  transform: translateX(-50%) translateY(-50%);
   opacity: 1;
   border-radius: 4px;
   z-index: 2;
   background-color: getColor("light");
   box-shadow: 0px 1px 3px getColor("first-shadow"),
     0px 1px 1px getColor("second-shadow"), 0px 2px 1px getColor("backdrop");
-
-  @include tablet {
-    width: 59%;
-  }
+  width: 100%;
+  max-width: 450px;
 
   @include desktop {
-    width: 35%;
+    max-width: 528px;
   }
 
   &__title {

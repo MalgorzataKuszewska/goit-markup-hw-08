@@ -25,7 +25,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding-right: 83px;
   padding-left: 40px;
   @include padding(48px, 48px);
   background-color: getColor("light");
@@ -88,6 +87,7 @@
 .mobile-menu-social {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 64px;
   &__link {
     font-weight: getFontWeight("accent");
@@ -106,6 +106,7 @@
     }
   }
 }
+
 @media screen and (min-width: 768px) {
   .menu-toggle,
   .menu-container {

@@ -94,61 +94,6 @@
                 Zamów usługę
               </button>
             </div>
-            <div class="backdrop is-hidden" data-modal>
-              <div class="modal">
-                <p class="modal__title">
-                  Zostaw swoje dane w formularzu poniżej
-                </p>
-                <form class="form">
-                  <label class="label" for="user_name">Imię</label>
-                  <input
-                    class="input"
-                    type="text"
-                    name="username"
-                    id="user_name"
-                  />
-                  <label class="label" for="user_phone">Telefon</label>
-                  <input
-                    class="input"
-                    type="tel"
-                    name="phone_number"
-                    id="user_phone"
-                  />
-                  <label class="label" for="user_email">Email</label>
-                  <input
-                    class="input"
-                    type="email"
-                    name="email"
-                    id="user_email"
-                  />
-                  <label class="label" for="comment">Komentarz</label>
-                  <textarea
-                    class="text-area"
-                    name="comment"
-                    placeholder="Wprowadź tekst"
-                    id="comment"
-                  ></textarea>
-                  <label class="checkbox">
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="check"
-                    />
-                    <span class="checkbox__text"
-                      >Oświadczam iż akceptuję
-                      <a class="checkbox__link" href="#">Regulamin</a> i
-                      <a class="checkbox__link" href="#"
-                        >Politykę Prywatności.</a
-                      ></span
-                    ></label
-                  >
-                  <button class="form__button" type="submit">Wyślij</button>
-                </form>
-                <button class="modal__button" type="button" data-modal-close>
-                  X
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -672,6 +617,36 @@
             >
           </li>
         </ul>
+      </div>
+    </div>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <p class="modal__title">Zostaw swoje dane w formularzu poniżej</p>
+        <form class="form">
+          <label class="label" for="user_name">Imię</label>
+          <input class="input" type="text" name="username" id="user_name" />
+          <label class="label" for="user_phone">Telefon</label>
+          <input class="input" type="tel" name="phone_number" id="user_phone" />
+          <label class="label" for="user_email">Email</label>
+          <input class="input" type="email" name="email" id="user_email" />
+          <label class="label" for="comment">Komentarz</label>
+          <textarea
+            class="text-area"
+            name="comment"
+            placeholder="Wprowadź tekst"
+            id="comment"
+          ></textarea>
+          <label class="checkbox">
+            <input class="checkbox__input" type="checkbox" name="check" />
+            <span class="checkbox__text"
+              >Oświadczam iż akceptuję
+              <a class="checkbox__link" href="#">Regulamin</a> i
+              <a class="checkbox__link" href="#">Politykę Prywatności.</a></span
+            ></label
+          >
+          <button class="form__button" type="submit">Wyślij</button>
+        </form>
+        <button class="modal__button" type="button" data-modal-close>X</button>
       </div>
     </div>
     <script src="./js/modal.js"></script>

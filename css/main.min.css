@@ -78,6 +78,15 @@
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
   background-color: rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body {
@@ -229,7 +238,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .contact__icon-envelope {
-    margin-right: 8px;
+    margin-right: 6px;
     width: 14px;
     height: 10px;
     --color5: currentColor;
@@ -500,6 +509,12 @@ body {
 * {
   margin: 0;
   padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .grid {
@@ -910,6 +925,9 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media screen and (min-width: 1200px) {
   .list--row {
@@ -1060,7 +1078,6 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding-right: 83px;
   padding-left: 40px;
   padding-top: 48px;
   padding-bottom: 48px;
@@ -1141,6 +1158,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-top: 64px;
 }
 .mobile-menu-social__link {
@@ -1165,32 +1184,23 @@ body {
   }
 }
 .modal {
-  width: 95%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   -webkit-transition-property: visibility, opacity;
   transition-property: visibility, opacity;
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
   visibility: visible;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
   opacity: 1;
   border-radius: 4px;
   z-index: 2;
   background-color: #fff;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1215686275), 0px 1px 1px rgba(0, 0, 0, 0.1411764706), 0px 2px 1px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1215686275), 0px 1px 1px rgba(0, 0, 0, 0.1411764706), 0px 2px 1px rgba(0, 0, 0, 0.2);
-}
-@media screen and (min-width: 768px) {
-  .modal {
-    width: 59%;
-  }
+  width: 100%;
+  max-width: 450px;
 }
 @media screen and (min-width: 1200px) {
   .modal {
-    width: 35%;
+    max-width: 528px;
   }
 }
 .modal__title {
