@@ -2,14 +2,12 @@
 
 .backdrop {
   position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   z-index: 1;
   transition-duration: 500ms;
   background-color: getColor("backdrop");
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  inset: 0;
 }
